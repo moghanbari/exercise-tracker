@@ -1,0 +1,30 @@
+{
+  "name": "exercise-tracker",
+  "version": "1.0.0",
+  "description": "A Full Stack application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "dev": "nodemon ./server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moghanbari/exercise-tracker.git"
+  },
+  "keywords": [],
+  "author": "Mo Ghanbari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moghanbari/exercise-tracker/issues"
+  },
+  "homepage": "https://github.com/moghanbari/exercise-tracker#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

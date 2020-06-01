@@ -1,9 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function CreateUser() {
+  const [username, setUsername] = useState('')
+
+  const onChangeUsername = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    const user = {
+      username,
+    }
+
+    console.log(user)
+    setUsername('')
+  }
+
   return (
     <div>
-      <p>Create User</p>
+      <h3>Create New User</h3>
+      <form onSubmit={onSubmit}>
+        <div className="form-group">
+          <label>Username: </label>
+          <input
+            type="text"
+            required
+            className="form-control"
+            value={username}
+            onChange={onChangeUsername}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="submit"
+            value="Create User"
+            className="btn btn-primary"
+          />
+        </div>
+      </form>
     </div>
   )
 }

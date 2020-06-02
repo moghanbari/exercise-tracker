@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -25,8 +26,11 @@ function CreateExercise() {
 
   // Same as componentDidMount lifeCycle hook
   useEffect(() => {
-    setUsers(['test user'])
-    setUsername('test username')
+    axios.get('http://localhost:5000/users').then((response) => {
+      if (response.data.length > 0) {
+        setUsers(response.data.map((user) => user.username))
+      }
+    })
   }, [])
 
   const onSubmit = (e) => {
@@ -39,7 +43,11 @@ function CreateExercise() {
       date,
     }
 
-    console.log(exercise)
+    axios
+      .post('http://localhost:5000/exercises', exercise)
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error))
+
     setUsername('')
     setDescription('')
     setDuration('')
